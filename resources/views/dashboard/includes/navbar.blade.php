@@ -4,12 +4,16 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
+
+        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <li class="nav-item active">
+                <a class="nav-link"
+                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"> {{ $properties['native'] }}
+
+                    <span class="sr-only">(current)</span></a>
+            </li>
+        @endforeach
+
     </ul>
 
     <!-- Right navbar links -->

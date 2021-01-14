@@ -11,8 +11,8 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="{{asset('Admin/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
+
 <script src="{{asset('Admin/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
@@ -25,6 +25,7 @@
 <!-- Sparkline -->
 <script src="{{asset('Admin/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
+
 <script src="{{asset('Admin/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
 <script src="{{asset('Admin/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
 <!-- jQuery Knob Chart -->
