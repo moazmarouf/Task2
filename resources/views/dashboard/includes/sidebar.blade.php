@@ -33,6 +33,23 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="{{route('category.index')}}" class="nav-link active">
+                        <i class="fab fa-fort-awesome"></i>
+                        <p>
+                            Category
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="{{route('product.index')}}" class="nav-link active">
+                        <i class="fab fa-product-hunt"></i>
+                        <p>
+                            Products
+                        </p>
+                    </a>
+                </li>
 
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\LoginController;
+use App\Http\Controllers\Dashboard\ProductController;
+use App\Http\Controllers\Dashboard\UserAjaxController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,7 +38,45 @@ Route::group(
 
             Route::get('delete/{id}', [UserController::class, 'getDelete'])->name('delete.user');
             Route::post('delete/{id}', [UserController::class, 'delete'])->name('delete.post.user');
+
         });
+
+        Route::group(['prefix' => 'ajax-users'], function () {
+
+            Route::get('create-user', [UserAjaxController::class, 'create'])->name('ajax.users.create');
+            Route::post('create-user', [UserAjaxController::class, 'store'])->name('ajax.users.store');
+        });
+
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/', [CategoryController::class, 'index'])->name('category.index');
+
+
+            Route::get('create', [CategoryController::class, 'create'])->name('category.create');
+            Route::post('create', [CategoryController::class, 'store'])->name('category.store');
+
+            Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+            Route::post('edit/{id}', [CategoryController::class, 'update'])->name('category.update');
+
+            Route::get('delete/{id}', [CategoryController::class, 'getDelete'])->name('category.get.delete');
+            Route::post('delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
+        });
+
+        Route::group(['prefix' => 'product'], function () {
+            Route::get('/', [ProductController::class, 'index'])->name('product.index');
+
+            Route::get('create', [ProductController::class, 'create'])->name('product.create');
+            Route::post('create', [ProductController::class, 'store'])->name('product.store');
+
+            Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
+            Route::post('edit/{id}', [ProductController::class, 'update'])->name('product.update');
+
+            Route::get('delete/{id}', [ProductController::class, 'getDelete'])->name('product.get.delete');
+            Route::post('delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+
+        });
+        //Route::get('news','News');
+
 
     });
     Route::group(['prefix' => 'admin', 'namespace' => 'Dashboard', 'middleware' => ['guest:admin']], function () {
